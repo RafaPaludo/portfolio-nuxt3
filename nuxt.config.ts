@@ -8,5 +8,6 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;700;900&display=swap' }
       ]
     }
-  }
+  },
+  modules: ['nuxt-icon']
 })

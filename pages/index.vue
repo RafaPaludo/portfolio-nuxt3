@@ -1,5 +1,5 @@
 <template>
-  <Header></Header>
+  Content
 </template>
 
 <style lang="scss">

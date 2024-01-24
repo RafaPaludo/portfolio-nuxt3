@@ -2,14 +2,20 @@
 
 * {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 html {
   /* 62.5% of 16px browser font size is 10px */
   font-size: 62.5%;
+  line-height: 1;
 }
 
 body {
   /* 16px */
   font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
 }
