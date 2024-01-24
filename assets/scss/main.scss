@@ -1,0 +1,15 @@
+@import 'variables';
+
+* {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+html {
+  /* 62.5% of 16px browser font size is 10px */
+  font-size: 62.5%;
+}
+
+body {
+  /* 16px */
+  font-size: 1.6rem;
+}
