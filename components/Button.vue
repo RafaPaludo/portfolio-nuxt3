@@ -3,33 +3,19 @@
         class="btn"
         :class="variant"
     >
-        <span v-if="btnText"> {{ btnText }}</span>
-        <span v-if="btnIcon"> 
-            <Icon 
-                :name="btnIcon.name"
-                :color="btnIcon.color"
-                :width="btnIcon.width"
-                :height="btnIcon.height"
-            />
-        </span>  
+        <slot name="icon"></slot>
+        <slot>Click</slot>
     </button>
 </template>
 
 <script setup>
 const porps = defineProps({
-    btnText:  {
-        type: String,
-        default: 'Contato'
-    },
-    btnIcon: {
-        type: Object
-    },
     variant: {
         type: String,
         default: 'default',
         validator(value, props) {
             // The value must match one of these strings
-            return ['default', 'icon'].includes(value)
+            return ['default', 'ghost', 'icon'].includes(value)
         }
     }
 })
@@ -48,7 +34,15 @@ const porps = defineProps({
     padding: 1.5rem 5rem;
 }
 
+.ghost {
+    padding: 1.5rem 5rem;
+    border: 1px solid $light-green;
+    color: $light-green;
+    background-color: transparent;
+}
+
 .icon {
     background-color: transparent;
 }
+
 </style>

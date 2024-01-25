@@ -13,19 +13,20 @@
 @import '~/assets/scss/main.scss';
 
 nav {
-    max-width: 600px;
+    
     width: 100%;
 }
 
 ul  {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    position: relative;
+    max-width: 600px;
     list-style: none;
     padding: 1.5rem;
-    margin: 0;
+    margin: 0 auto;
     border: 1px solid $light-green;
     font-size: 1.6rem;
     font-weight: 700;

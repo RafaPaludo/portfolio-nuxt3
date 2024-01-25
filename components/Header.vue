@@ -3,36 +3,30 @@
         <div class="container">
             <Logo />
             <Nav class="mb-hidden"></Nav>
-            <Button class="mb-hidden"/>
-            <Button class="desk-hidden" btnText="" :btnIcon="icons.menu" variant="icon" @click="openModal"/>
+            <Button class="btn__contact mb-hidden">Contato</Button>
+            <Button @click="openModal" variant="icon" class="desk-hidden">
+                <template v-slot="icon">
+                    <Icon name="game-icons:hamburger-menu" color="#2EBF93" width="32" height="32"/>
+                </template>
+            </Button>
+
             <div v-if="modal" class="modal">
                 <div class="overlay" @click="closeModal"></div>
                 <div class="menu-mobile">
-                    <Button  @click="closeModal" class="desk-hidden close-menu" btnText="" :btnIcon="icons.close" variant="icon" />
+                    <Button  @click="closeModal" class="desk-hidden close-menu" variant="icon">
+                        <template v-slot="icon">
+                            <Icon name="material-symbols:close" color="#2EBF93" width="32" height="32"/>
+                        </template>
+                    </Button>
                     <Nav></Nav>
-                    <Button />
+                    <Button>Contato</Button>
                 </div>
             </div>
         </div>
     </header>
 </template>
 
-<script setup>
-const icons = {
-    "menu":  {
-        name: 'game-icons:hamburger-menu',
-        color: '#2EBF93',
-        width: '32',
-        width: '32',
-    },
-    "close": {
-        name: 'material-symbols:close',
-        color: '#2EBF93',
-        width: '32',
-        width: '32',
-    }
-}
-    
+<script setup>    
 const modal = ref(false)
 
 function openModal () {
@@ -53,6 +47,15 @@ function closeModal () {
 
 .header {
     box-shadow: 0 3px 8px rgba($light-green,.1);
+}
+
+.logo,
+.btn__contact {
+    flex-basis: 10%;
+}
+
+nav {
+    flex-basis: 80%;
 }
 
 .container {
