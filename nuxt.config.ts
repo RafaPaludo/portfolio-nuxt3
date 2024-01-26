@@ -2,6 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/scss/normalize.scss', '~/assets/scss/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/scss/_variables.scss" as *;'
+        }
+      }
+    }
+  },
   app: {
     head: {
       link: [
@@ -9,5 +18,5 @@ export default defineNuxtConfig({
       ]
     }
   },
-  modules: ['nuxt-icon']
+  modules: ['nuxt-icon', 'vue3-carousel-nuxt']
 })

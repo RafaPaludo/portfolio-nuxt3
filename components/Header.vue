@@ -39,7 +39,6 @@ function closeModal () {
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/main.scss';
 
 .desk-hidden {
     display: none;

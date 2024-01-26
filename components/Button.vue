@@ -22,7 +22,6 @@ const porps = defineProps({
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/main.scss';
 .btn {
     font-weight: 700;
     background-color: $light-green;

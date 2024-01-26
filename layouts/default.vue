@@ -2,12 +2,12 @@
     <div id="default">
       <Header />
       <slot />
+
+      <Footer />
     </div>
 </template>
 
 <style lang="scss">
-@import '~/assets/scss/main.scss';
-
 #default {
     background-color: $rich-black;
 }
