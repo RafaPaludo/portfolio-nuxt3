@@ -1,4 +1,13 @@
-@import 'variables';
+// Import variables, mixins e functions
+@import "variables";
+@import "mixins";
+@import "functions";
+
+// Import normalize
+@import "normalize";
+
+// If need other styles add it here:
+// @import "outro-arquivo";
 
 * {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;

@@ -23,6 +23,7 @@ const porps = defineProps({
 
 <style lang="scss">
 .btn {
+    @include cuttedEgde;
     font-weight: 700;
     background-color: $light-green;
     color: $rich-black;
@@ -35,9 +36,16 @@ const porps = defineProps({
 
 .ghost {
     padding: 1.5rem 5rem;
-    border: 1px solid $light-green;
     color: $light-green;
     background-color: transparent;
+
+    &::after {
+        background: $rich-black;
+    }
+
+    &::before {
+        background: $light-green;
+    }
 }
 
 .icon {

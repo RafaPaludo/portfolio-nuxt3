@@ -1,0 +1,60 @@
+/*
+    MIXINS
+*/
+@import 'variables';
+
+/* Create a cutted top-left and bottom-right edges on retangle */
+@mixin cuttedEgde ($bg-color: #2EBF93, $border-color: #6AEDCD, $border-width: .1em, $edge-size: .5em) { 
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    background-color: transparent;
+    clip-path:
+        polygon(
+            /* top-left 1 */ 
+            0% $edge-size,
+            /* top-left 2 */ 
+            $edge-size 0%,
+            /* top-right */ 
+            100% 0,
+            /* bottom-right 1 */ 
+            100% calc(100% - $edge-size),
+            /* bottom-right 2 */ 
+            calc(100% - $edge-size) 100%,
+            /* bottom-left 1 */ 
+            0 100%,
+        );
+
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+    }
+
+    &::before {
+        background: $border-color;
+        z-index: -2;
+    }
+
+    &::after {
+        z-index: -1;
+        background: $bg-color;
+        clip-path: polygon(
+            /* top left 1 */
+            $border-width calc($edge-size + $border-width * 0.5),
+            /* top left 2 */
+            calc($edge-size + $border-width * 0.5) $border-width,
+            /* top right */
+            calc(100% - $border-width) $border-width,
+            /* bottom right - 1 */
+            calc(100% - $border-width)
+            calc(100% - calc($edge-size + $border-width * 0.5)),
+            /* bottom right - 2 */
+            calc(100% - calc($edge-size + $border-width * 0.5))
+            calc(100% - $border-width),
+            /* bottom left */
+            calc($border-width) calc(100% - $border-width)
+        );
+    }
+}

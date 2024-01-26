@@ -6,6 +6,7 @@
 
 <style lang="scss">
 .subtitle {
+    @include cuttedEgde;
     display: block;
     max-width: 27rem;
     padding: 1rem;
