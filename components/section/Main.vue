@@ -48,6 +48,7 @@
 <style lang="scss"> 
 .main {
 	&__container {
+		@include bevel($bg-color: $rich-black, $border-color: $light-green, $edge-top-left: 3em, $edge-bottom-right: 3em);
 		margin: 7rem 0 14rem;
 		border: 1px solid $light-green;
 		display: flex;
@@ -57,7 +58,7 @@
 
 	&__text {
 		flex-basis: 50%;
-		padding: 15rem 7.5rem 10rem;
+		padding: 10rem 7.5rem 0;
 		
 		color: $white;
 
@@ -104,9 +105,10 @@
 	&__container {
 		display: flex;
 		gap: 3rem;
+		padding: 4rem 7.5rem 10rem;
 
 		.btn {
-			padding: 1rem 3rem;
+			padding: .5rem 3rem;
 			background-color: $light-green;
 		}
 	}

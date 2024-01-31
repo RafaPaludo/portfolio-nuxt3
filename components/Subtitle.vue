@@ -6,7 +6,7 @@
 
 <style lang="scss">
 .subtitle {
-    @include cuttedEgde;
+    @include bevel($border: false);
     display: block;
     max-width: 27rem;
     padding: 1rem;

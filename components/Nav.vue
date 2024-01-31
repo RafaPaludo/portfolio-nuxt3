@@ -16,6 +16,7 @@ nav {
 }
 
 ul  {
+    @include bevel($bg-color: $rich-black, $border-color: $light-green);
     position: relative;
     display: flex;
     justify-content: center;
@@ -25,7 +26,6 @@ ul  {
     list-style: none;
     padding: 1.5rem;
     margin: 0 auto;
-    border: 1px solid $light-green;
     font-size: 1.6rem;
     font-weight: 700;
     

@@ -26,9 +26,9 @@
 
 <style lang="scss">
 .contact {
-    padding: 5rem;
+    @include rabbet;
+    padding: 5rem 5rem 8rem;
     margin: 14rem 0;
-    border: 1px solid $light-green;
 
     &__lead {
         margin: 5rem 0;

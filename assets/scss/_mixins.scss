@@ -4,26 +4,100 @@
 @import 'variables';
 
 /* Create a cutted top-left and bottom-right edges on retangle */
-@mixin cuttedEgde ($bg-color: #2EBF93, $border-color: #6AEDCD, $border-width: .1em, $edge-size: .5em) { 
+@mixin bevel (
+    $bg-color: #2EBF93,
+    $edge-top-left: .5em,
+    $edge-bottom-right: .5em,
+
+    /* Border */
+    $border: true,
+    $border-color: #6AEDCD,
+    $border-width: .1em
+) {
     position: relative;
     isolation: isolate;
-    display: inline-grid;
-    background-color: transparent;
+    background-color: $bg-color;
     clip-path:
         polygon(
             /* top-left 1 */ 
-            0% $edge-size,
+            0% $edge-top-left,
             /* top-left 2 */ 
-            $edge-size 0%,
+            $edge-top-left 0%,
             /* top-right */ 
             100% 0,
             /* bottom-right 1 */ 
-            100% calc(100% - $edge-size),
+            100% calc(100% - $edge-bottom-right),
             /* bottom-right 2 */ 
-            calc(100% - $edge-size) 100%,
+            calc(100% - $edge-bottom-right) 100%,
             /* bottom-left 1 */ 
             0 100%,
         );
+    
+    @if $border {
+        background-color: $bg-color;
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+    
+        &::before {
+            background: $border-color;
+            z-index: -2;
+        }
+    
+        &::after {
+            z-index: -1;
+            background: $bg-color;
+            clip-path: polygon(
+                /* top left 1 */
+                $border-width calc($edge-top-left + $border-width * 0.5),
+                /* top left 2 */
+                calc($edge-top-left + $border-width * 0.5) $border-width,
+                /* top right */
+                calc(100% - $border-width) $border-width,
+                /* bottom right - 1 */
+                calc(100% - $border-width)
+                calc(100% - calc($edge-bottom-right + $border-width * 0.5)),
+                /* bottom right - 2 */
+                calc(100% - calc($edge-bottom-right + $border-width * 0.5))
+                calc(100% - $border-width),
+                /* bottom left */
+                calc($border-width) calc(100% - $border-width)
+            );
+        }  
+    }
+}
+
+@mixin rabbet (
+    $edge: 2.5em,
+    $border-width: .1em
+) {
+    position: relative;
+    background-color: $light-green;
+    clip-path: polygon(
+        /* top left 1 */
+        0% $edge,
+        /* top left 2 */
+        $edge 0%,
+        /* top right 1 */
+        calc(100% - $edge) 0%,
+        /* top right 2 */
+        100% $edge,
+        /* bottom right */
+        100% calc(100% - $edge),
+        /* bottom middle 1 */
+        70% calc(100% - $edge),
+        /* bottom middle 2 */
+        65% 100%,
+        /* bottom middle 3 */
+        35% 100%,
+        /* bottom middle 4 */
+        30% calc(100% - $edge),
+        /* bottom left */
+        0% calc(100% - $edge)
+    );
 
     &::after,
     &::before {
@@ -33,28 +107,41 @@
     }
 
     &::before {
-        background: $border-color;
+        background: $light-green;
         z-index: -2;
     }
 
     &::after {
         z-index: -1;
-        background: $bg-color;
+        background: $rich-black;
         clip-path: polygon(
             /* top left 1 */
-            $border-width calc($edge-size + $border-width * 0.5),
+            $border-width calc($edge + $border-width * 0.5),
             /* top left 2 */
-            calc($edge-size + $border-width * 0.5) $border-width,
-            /* top right */
-            calc(100% - $border-width) $border-width,
-            /* bottom right - 1 */
+            calc($edge + $border-width * 0.5) $border-width,
+            /* top right 1 */
+            calc(100% - calc($edge + $border-width * 0.5))
+            $border-width,
+            /* top right 2 */
             calc(100% - $border-width)
-            calc(100% - calc($edge-size + $border-width * 0.5)),
-            /* bottom right - 2 */
-            calc(100% - calc($edge-size + $border-width * 0.5))
+            calc($edge + $border-width * 0.5),
+            /* bottom right */
+            calc(100% - $border-width)
+            calc(100% - calc($edge + $border-width)),
+            /* bottom middle 1 */
+            calc(70% - $border-width)
+            calc(100% - calc($edge + $border-width)),
+            /* bottom middle 2 */
+            calc(65% - $border-width)
             calc(100% - $border-width),
+            /* bottom middle 3 */
+            calc(35% + $border-width)
+            calc(100% - $border-width),
+            /* bottom middle 4 */
+            calc(30% + $border-width)
+            calc(100% - calc($edge + $border-width)),
             /* bottom left */
-            calc($border-width) calc(100% - $border-width)
+            $border-width calc(100% - calc($edge + $border-width))
         );
     }
 }
