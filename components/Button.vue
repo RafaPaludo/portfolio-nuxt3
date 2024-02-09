@@ -1,11 +1,12 @@
 <template>
-    <button 
+    <component :is="as"
         class="btn"
         :class="variant"
     >
         <slot name="icon"></slot>
         <slot>Click</slot>
-    </button>
+    
+    </component>
 </template>
 
 <script setup>
@@ -17,25 +18,36 @@ const porps = defineProps({
             // The value must match one of these strings
             return ['default', 'ghost', 'icon'].includes(value)
         }
+    },
+    as: {
+        type: String,
+        default: 'button',
+        validator(value, props) {
+            // The value must match one of these strings
+            return ['button', 'a'].includes(value)
+        }
     }
 })
 </script>
 
 <style lang="scss">
 .btn {
+    cursor: pointer;
     font-weight: 700;
     background-color: $light-green;
     color: $rich-black;
     border: none;
+    min-width: 17rem;
+    text-align: center;
 
     &.default {
         @include bevel;
-        padding: 1.5rem 5rem;
+        padding: 1.5rem 0;
     }
 
     &.ghost {
-        @include bevel;
-        padding: 1.5rem 5rem;
+        @include bevel($text-transition-color: $white);
+        padding: 1.5rem 0;
         color: $light-green;
         background-color: transparent;
 
@@ -49,8 +61,8 @@ const porps = defineProps({
     }
 
     &.icon {
-        @include bevel($border: false);
         background-color: transparent;
+        min-width: 4rem;
     }
 }
 </style>

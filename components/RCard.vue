@@ -27,7 +27,7 @@
     }
 
     &__caption {
-        @include bevel($border: false, $bg-color: $rich-black, $edge-top-left: 0em, $edge-bottom-right: 1.8rem);
+        @include bevel($border: false, $bg-color: $rich-black, $edge-top-left: 0em, $edge-bottom-right: 1.8rem, $hover: false);
         padding: 1rem;
         margin-top: .2rem;
         color: $white;

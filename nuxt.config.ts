@@ -22,5 +22,5 @@ export default defineNuxtConfig({
       ]
     }
   },
-  modules: ['nuxt-icon', 'vue3-carousel-nuxt']
+  modules: ['nuxt-icon', 'vue3-carousel-nuxt', '@pinia/nuxt']
 })

@@ -12,26 +12,26 @@
           <p>I solve real problems using technology</p>
   
           <div class="action__container">
-            <Button>Contato</Button>
-            <Button variant="ghost">Currículo</Button>
+            <Button as="a" href="#contact">Contato</Button>
+            <Button variant="ghost" as="a" href="/curriculo-rafael-paludo.pdf" target="_blank">Currículo</Button>
           </div>
         </div>
         
   
         <div class="media__container">
-          <Button variant="icon">
+          <Button as="a" href="https://github.com/RafaPaludo" target="_blank">
                 <template v-slot="icon">
                     <Icon name="mdi:github" color="#0E1114" width="32" height="32"/>
                 </template>
           </Button>
   
-          <Button variant="icon">
+          <Button as="a" href="https://www.linkedin.com/in/rafael-paludo-93a48413b/" target="_blank">
                 <template v-slot="icon">
                     <Icon name="mdi:linkedin" color="#0E1114" width="32" height="32"/>
                 </template>
           </Button>
   
-          <Button variant="icon">
+          <Button as="a" href="https://www.instagram.com/rafa.paludo/" target="_blank">
                 <template v-slot="icon">
                     <Icon name="mdi:instagram" color="#0E1114" width="32" height="32"/>
                 </template>
@@ -48,12 +48,16 @@
 <style lang="scss"> 
 .main {
 	&__container {
-		@include bevel($bg-color: $rich-black, $border-color: $light-green, $edge-top-left: 3em, $edge-bottom-right: 3em);
+		@include bevel($bg-color: $rich-black, $border-color: $light-green, $edge-top-left: 3em, $edge-bottom-right: 3em, $hover: false);
 		margin: 7rem 0 14rem;
 		border: 1px solid $light-green;
 		display: flex;
 		justify-content: left;
 		align-items: center;
+	}
+
+	&__description {
+		width: 100%;
 	}
 
 	&__text {
@@ -97,6 +101,7 @@
 	&__container {
 		margin-top: 4.8rem;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 3rem;
 	}
 }
@@ -108,8 +113,12 @@
 		padding: 4rem 7.5rem 10rem;
 
 		.btn {
-			padding: .5rem 3rem;
-			background-color: $light-green;
+			padding: 0;
+			min-width: 9.2rem;
+			height: 4.2rem;
+
+			&::after,
+			&::before { display:  none; }
 		}
 	}
 }
@@ -117,14 +126,13 @@
 @media screen and (max-width: 767px) {
 	.main {
 		&__container {
-			margin: 1rem 0;
+			margin: 0 0 1rem;
 			flex-direction: column;
 			align-items: flex-start;
 		}
 
 		&__text {
-			flex-basis: 50%;
-			padding: 3.2rem 1.2rem;
+			padding: 5.2rem 3.2rem;
 
 			h1 {
 				font-size: 3.2rem;
@@ -135,11 +143,16 @@
 				margin: 1rem 0;
 			}
 		}
+
+		&__image {
+			padding: 5.2rem 3.2rem;
+		}
 	}
   
 	.action {
 		&__container {
 			margin-top: 2.4rem;
+			gap: 2rem;
 
 			.btn {
 				padding: 0.8rem 2.5rem;
@@ -149,8 +162,11 @@
   
 	.media {
 		&__container {
+			padding: 0rem 3.2rem 5.2rem 3.2rem;
+			gap: 2rem;
+
 			.btn {
-				padding: 0.5rem 1.5rem;
+				min-width: 6rem;
 			}
 		}
 	}

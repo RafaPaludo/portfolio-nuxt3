@@ -6,7 +6,7 @@
 
 <style lang="scss">
 .subtitle {
-    @include bevel($border: false);
+    @include bevel($border: false, $edge-bottom-right: 0em, $hover: false);
     display: block;
     max-width: 27rem;
     padding: 1rem;
