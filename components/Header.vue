@@ -10,31 +10,38 @@
                 </template>
             </Button>
 
-            <div v-if="modal" class="modal">
-                <div class="overlay" @click="closeModal"></div>
-                <div class="menu-mobile">
-                    <Button  @click="closeModal" class="desk-hidden close-menu" variant="icon">
-                        <template v-slot="icon">
-                            <Icon name="material-symbols:close" color="#2EBF93" width="32" height="32"/>
-                        </template>
-                    </Button>
-                    <Nav></Nav>
-                    <Button>Contato</Button>
+            <Transition name="slide-fade">
+                <div v-if="modalStore.modal" class="modal">
+                    <div class="overlay" @click="closeModal"></div>
+                    <div class="menu-mobile">
+                        <Button  @click="closeModal" class="desk-hidden close-menu" variant="icon">
+                            <template v-slot="icon">
+                                <Icon name="material-symbols:close-small-outline" color="#2EBF93" width="50" height="50"/>
+                            </template>
+                        </Button>
+                        <Nav></Nav>
+                        <Button
+                            as="a"
+                            href="/curriculo-rafael-paludo.pdf" target="_blank"
+                        >
+                            Currículo
+                        </Button>
+                    </div>
                 </div>
-            </div>
+            </Transition>
         </div>
     </header>
 </template>
 
-<script setup>    
-const modal = ref(false)
+<script setup>
+const modalStore = useModalStore()
 
 function openModal () {
-    modal.value = true
+    modalStore.open()
 }
 
 function closeModal () {
-    modal.value = false
+    modalStore.close()
 }
 </script>
 
@@ -71,15 +78,19 @@ nav {
 .modal {
     position: fixed;
     inset: 0;
+    z-index: 10;
+    width: 100vw;
 
     .overlay {
         position: absolute;
         inset: 0;
         z-index: -1;
         background-color: rgba($black, .8);
+        width: 200%;
     }
 
     .menu-mobile {
+        @include bevel($border: false, $edge-top-left: 5em);
         width: 80%;
         height: 100vh;
         margin-left: auto;
@@ -96,8 +107,14 @@ nav {
          
             ul {
                 flex-direction: column;
-                padding: 5rem 0 3rem;
+                padding: 14rem 0 4rem;
                 border: none;
+                gap: 4rem;
+
+                &::after,
+                &::before { display: none; }
+
+                li:last-child { display: none; }
             }
         }
 
@@ -106,6 +123,17 @@ nav {
             margin: 0 auto;
         }
     }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 
 @media screen and (max-width: 767px) {

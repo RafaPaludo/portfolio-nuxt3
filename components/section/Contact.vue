@@ -1,5 +1,5 @@
 <template>
-    <section class="contact">
+    <section id="contact" class="contact">
         <Subtitle>Contact</Subtitle>
         <p class="contact__lead">
             Tem algum projeto em mente? <br>
@@ -16,7 +16,7 @@
             </label>
 
             <label class="contact__label">
-                <textarea id="subject" name="subject" rows="1" cols="50" class="contact__subject" placeholder="Assunto"></textarea>
+                <textarea id="subject" name="subject" rows="5" cols="50" class="contact__subject" placeholder="Assunto"></textarea>
             </label>
 
             <Button class="contact__button">Enviar</Button>
@@ -26,9 +26,9 @@
 
 <style lang="scss">
 .contact {
-    padding: 5rem;
+    @include rabbet;
+    padding: 5rem 5rem 8rem;
     margin: 14rem 0;
-    border: 1px solid $light-green;
 
     &__lead {
         margin: 5rem 0;
@@ -46,6 +46,7 @@
 
     &__label {
         grid-column: span 4;
+        @include bevel($border: true, $edge-bottom-right: 0em, $bg-color: $rich-black, $border-color: $white, $hover: false);
 
         &:nth-of-type(3)  {
             grid-column: span 8;
@@ -53,11 +54,20 @@
           
         & > * {
             width: 100%;
-            padding: 1rem;
+            padding: 1.5rem;
             background-color: transparent;
-            border: 1px solid $white;
+            border: none;
             color: $white;
             font-weight: 700;
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+        textarea {
+            min-height: 5rem;
+            resize: vertical;
         }
     }
 
@@ -69,7 +79,7 @@
 
 @media screen and (max-width: 767px) {
     .contact {
-        padding: 4rem 2rem;
+        padding: 4rem 2rem 8rem;
         margin: 5rem 0;
 
         &__form {
