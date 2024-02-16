@@ -116,6 +116,7 @@
 			padding: 0;
 			min-width: 9.2rem;
 			height: 4.2rem;
+      line-height: 4.2rem;
 
 			&::after,
 			&::before { display:  none; }
