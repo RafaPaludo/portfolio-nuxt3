@@ -1,4 +1,4 @@
-export const useModalStore = defineStore('modalStore', () => {
+export const useModalStore = defineStore('modal', () => {
     const modal = ref(false)
 
     function open(params) {
