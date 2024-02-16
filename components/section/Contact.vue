@@ -6,17 +6,17 @@
             Me envie um e-mail para tirarmos isso do papel e revolucionar o mundo!
         </p>
 
-        <form action="" class="contact__form">
+        <form action="" class="contact__form" ref="form" @submit.prevent="sendEmail">
             <label class="contact__label">
-                <input type="text" placeholder="Nome" class="contact__name" />
+                <input type="text" placeholder="Nome" class="contact__name" name="user_name" ref="inputName"/>
             </label>
 
             <label class="contact__label">
-                <input type="email" placeholder="Email" class="contact__email" />
+                <input type="email" placeholder="Email" class="contact__email" name="user_email" ref="inputEmail"/>
             </label>
 
             <label class="contact__label">
-                <textarea id="subject" name="subject" rows="5" cols="50" class="contact__subject" placeholder="Assunto"></textarea>
+                <textarea id="subject" name="message" rows="5" cols="50" class="contact__subject" placeholder="Assunto" ref="message"></textarea>
             </label>
 
             <Button class="contact__button">Enviar</Button>
@@ -47,6 +47,10 @@
     &__label {
         grid-column: span 4;
         @include bevel($border: true, $edge-bottom-right: 0em, $bg-color: $rich-black, $border-color: $white, $hover: false);
+
+        &--empty {
+          @include bevel($border: true, $edge-bottom-right: 0em, $bg-color: $rich-black, $border-color: $red, $hover: false);
+        }
 
         &:nth-of-type(3)  {
             grid-column: span 8;
@@ -90,3 +94,42 @@
     }
 }
 </style>
+
+<script setup>
+import emailjs from '@emailjs/browser'
+
+const form = ref(null)
+const inputName = ref(null)
+const inputEmail = ref(null)
+const message = ref(null)
+
+function clearFields () {
+  inputName.value.value = inputEmail.value.value = message.value.value = ''
+}
+
+function checkWrongFields ([ ...fields ]) {
+  fields.forEach(field => {
+    if (!field.value.value.trim()) {
+      field.value.parentElement.classList.add('contact__label--empty')
+    }
+  })
+}
+
+function sendEmail () {
+  checkWrongFields([inputName, inputEmail, message])
+  
+  // emailjs
+  //   .sendForm('contact_service', 'contact_form', form.value, {
+  //     publicKey: 'BcNk5FVCHMQCfiIqW'
+  //   })
+  //   .then(
+  //     () => {
+  //       clearFields()
+  //       console.log("SUCESS!")
+  //     },
+  //     (error) => {
+  //       console.warn('Error', error.text)
+  //     }
+  //   )
+}
+</script>
