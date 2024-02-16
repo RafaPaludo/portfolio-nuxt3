@@ -10,7 +10,7 @@
                 </template>
             </Button>
 
-            <Transition name="slide-fade">
+            <Transition name="slide-fade-r">
                 <div v-if="modalStore.modal" class="modal">
                     <div class="overlay" @click="closeModal"></div>
                     <div class="menu-mobile">
@@ -123,17 +123,6 @@ nav {
             margin: 0 auto;
         }
     }
-}
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
 }
 
 @media screen and (max-width: 767px) {
