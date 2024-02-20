@@ -3,6 +3,7 @@
         <div class="container">
             <Logo />
             <Nav class="mb-hidden"></Nav>
+            <Button as="a" href="#contact" class="mb-hidden" @click="smoothScroll">Contato</Button>
             <Button @click="openModal" variant="icon" class="desk-hidden">
                 <template v-slot="icon">
                     <Icon name="game-icons:hamburger-menu" color="#13b47e" width="32" height="32"/>
@@ -51,7 +52,13 @@ function closeModal () {
 }
 
 .header {
-    box-shadow: 0 3px 8px rgba($light-green,.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: $rich-black;
+  box-shadow: 0 1px 4px rgba($light-green,.1);
+  z-index: 1;
 }
 
 .logo {
@@ -71,6 +78,10 @@ nav {
   margin: 0 auto;
   max-width: 130rem;
   gap: 2rem;
+
+  .btn {
+    flex-basis: 10%;
+  }
 }
 
 // Mobile Modal

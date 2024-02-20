@@ -5,7 +5,7 @@
                 <NuxtLink
                     :to="link.href"
                     :target="link.target || '_self'"
-                    @click="smoothScroll"
+                    @click="handleClick"
                 >{{ link.content }}</NuxtLink>
             </li>
         </ul>
@@ -39,22 +39,10 @@ const links = [
     }
 ]
 
-function smoothScroll (e) {
-    const target = e.target
-    
-    if (target.hash !== '') {
-        e.preventDefault()
-        const element = document.querySelector(target.hash)
-
-        modalStore.close()
-
-        window.scrollTo({
-            top: element.offsetTop - 130,
-            left: 0,
-            behavior: "smooth",
-        });
-    }
+function handleClick () {
+  modalStore.close()
 }
+
 </script>
 
 <style lang="scss">

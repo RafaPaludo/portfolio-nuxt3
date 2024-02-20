@@ -9,13 +9,24 @@
 
 <style lang="scss">
 .page {
-  margin: 0 auto;
+  margin: 17rem auto 0;
   max-width: 127rem;
+}
+
+#about,
+#contact,
+#projects {
+  scroll-margin-top: 22rem;
 }
   
 @media screen and (max-width: 767px) {
+  #about,
+  #contact,
+  #projects {
+    scroll-margin-top: 12rem;
+  }
 	.page {
-    margin: 1.5rem;
+    margin: 12rem 1.5rem 1.5rem;
   }
 }
 </style>

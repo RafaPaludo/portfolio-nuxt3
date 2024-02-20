@@ -79,7 +79,7 @@
     }
 
     @if $hover {
-        &:where(:hover, :focus)::after {
+        &:where(:hover)::after {
             clip-path: polygon(
                 /* top left 1 */
                 calc(100% - $border-width)
@@ -101,7 +101,7 @@
             );
         }
 
-        &:where(:hover, :focus) {
+        &:where(:hover) {
             color: $text-transition-color;
         }
     }
