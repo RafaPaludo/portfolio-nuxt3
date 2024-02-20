@@ -1,32 +1,32 @@
 <template>
-    <component :is="as"
-        class="btn"
-        :class="variant"
-    >
-        <slot name="icon"></slot>
-        <slot>Click</slot>
-    
-    </component>
+  <component :is="as"
+    class="btn"
+    :class="variant"
+  >
+    <slot name="icon"></slot>
+    <slot>Click</slot>
+  
+  </component>
 </template>
 
 <script setup>
 const porps = defineProps({
-    variant: {
-        type: String,
-        default: 'default',
-        validator(value, props) {
-            // The value must match one of these strings
-            return ['default', 'ghost', 'icon'].includes(value)
-        }
-    },
-    as: {
-        type: String,
-        default: 'button',
-        validator(value, props) {
-            // The value must match one of these strings
-            return ['button', 'a'].includes(value)
-        }
+  variant: {
+    type: String,
+    default: 'default',
+    validator(value, props) {
+      // The value must match one of these strings
+      return ['default', 'ghost', 'icon'].includes(value)
     }
+  },
+  as: {
+    type: String,
+    default: 'button',
+    validator(value, props) {
+      // The value must match one of these strings
+      return ['button', 'a'].includes(value)
+    }
+  }
 })
 </script>
 

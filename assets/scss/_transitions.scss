@@ -1,0 +1,15 @@
+[class*='slide-fade'] {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-r-enter-from,
+.slide-fade-r-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.slide-fade-t-enter-from,
+.slide-fade-t-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}

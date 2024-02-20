@@ -9,8 +9,6 @@
             </p>
         </div>
 
-        
-
         <div class="carousel__container">
             <carousel
                 v-bind="settings"

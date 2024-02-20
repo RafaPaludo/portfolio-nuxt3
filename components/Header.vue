@@ -3,20 +3,20 @@
         <div class="container">
             <Logo />
             <Nav class="mb-hidden"></Nav>
-            <Button class="btn__contact mb-hidden">Contato</Button>
+            <Toggle />
             <Button @click="openModal" variant="icon" class="desk-hidden">
                 <template v-slot="icon">
-                    <Icon name="game-icons:hamburger-menu" color="#2EBF93" width="32" height="32"/>
+                    <Icon name="game-icons:hamburger-menu" color="#13b47e" width="32" height="32"/>
                 </template>
             </Button>
 
-            <Transition name="slide-fade">
+            <Transition name="slide-fade-r">
                 <div v-if="modalStore.modal" class="modal">
                     <div class="overlay" @click="closeModal"></div>
                     <div class="menu-mobile">
                         <Button  @click="closeModal" class="desk-hidden close-menu" variant="icon">
                             <template v-slot="icon">
-                                <Icon name="material-symbols:close-small-outline" color="#2EBF93" width="50" height="50"/>
+                                <Icon name="material-symbols:close-small-outline" color="#13b47e" width="50" height="50"/>
                             </template>
                         </Button>
                         <Nav></Nav>
@@ -37,11 +37,11 @@
 const modalStore = useModalStore()
 
 function openModal () {
-    modalStore.open()
+  modalStore.open()
 }
 
 function closeModal () {
-    modalStore.close()
+  modalStore.close()
 }
 </script>
 
@@ -55,26 +55,33 @@ function closeModal () {
     box-shadow: 0 3px 8px rgba($light-green,.1);
 }
 
-.logo,
-.btn__contact {
-    flex-basis: 10%;
+.logo {
+  flex-basis: 10%;
+}
+
+.switch {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  flex-basis: 10%;
 }
 
 nav {
-    flex-basis: 80%;
+  flex-basis: 80%;
 }
 
 .container {
-    background-color: $rich-black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem 1.5rem;
-    margin: 0 auto;
-    max-width: 130rem;
-    gap: 2rem;
+  background-color: $rich-black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  margin: 0 auto;
+  max-width: 130rem;
+  gap: 2rem;
 }
 
+// Mobile Modal
 .modal {
     position: fixed;
     inset: 0;
@@ -123,17 +130,6 @@ nav {
             margin: 0 auto;
         }
     }
-}
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
 }
 
 @media screen and (max-width: 767px) {
