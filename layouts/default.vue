@@ -1,5 +1,5 @@
 <template>
-    <div id="default" :class="useTheme.theme">
+    <div id="default">
       <Header />
       <slot />
 
@@ -15,5 +15,4 @@
 </style>
 
 <script setup>
-const useTheme = useThemeStore()
 </script>

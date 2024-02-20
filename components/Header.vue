@@ -3,7 +3,6 @@
         <div class="container">
             <Logo />
             <Nav class="mb-hidden"></Nav>
-            <Toggle />
             <Button @click="openModal" variant="icon" class="desk-hidden">
                 <template v-slot="icon">
                     <Icon name="game-icons:hamburger-menu" color="#13b47e" width="32" height="32"/>
@@ -56,13 +55,6 @@ function closeModal () {
 }
 
 .logo {
-  flex-basis: 10%;
-}
-
-.switch {
-  display: flex;
-  align-items: end;
-  justify-content: end;
   flex-basis: 10%;
 }
 
