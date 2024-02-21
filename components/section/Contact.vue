@@ -1,6 +1,6 @@
 <template>
     <section id="contact" class="contact">
-        <Subtitle>Contact</Subtitle>
+        <Subtitle>Contato</Subtitle>
         <p class="contact__lead">
             Tem algum projeto em mente? <br>
             Me envie um e-mail para trabalharmos juntos nisso!
@@ -8,15 +8,15 @@
 
         <form action="" class="contact__form" ref="form" @submit.prevent="sendEmail">
             <label class="contact__label">
-                <input type="text" placeholder="Fulano de Tal" class="contact__name" name="user_name" ref="inputName" @focusin="focusIn" @focusout="focusOut"/>
+              <input type="text" placeholder="Nome" class="contact__name" name="user_name" ref="inputName" @focusin="focusIn" @focusout="focusOut"/>
             </label>
 
             <label class="contact__label">
-                <input type="email" placeholder="fulano@contato.com" class="contact__email" name="user_email" ref="inputEmail" @focusin="focusIn" @focusout="focusOut" />
+                <input type="email" placeholder="Email" class="contact__email" name="user_email" ref="inputEmail" @focusin="focusIn" @focusout="focusOut" />
             </label>
 
             <label class="contact__label">
-                <textarea id="subject" name="message" rows="5" cols="50" class="contact__subject" placeholder="Minha mensagem" ref="message" @focusin="focusIn" @focusout="focusOut"></textarea>
+                <textarea id="subject" name="message" rows="5" cols="50" class="contact__subject" placeholder="Sua mensagem" ref="message" @focusin="focusIn" @focusout="focusOut"></textarea>
             </label>
 
             <Button class="contact__button">Enviar</Button>
@@ -24,7 +24,7 @@
 
         <Transition name="slide-fade-t">
           <p class="contact__feedback" v-if="feedback">
-            Email enviado com sucesso!
+            E-mail enviado com sucesso!
           </p>
         </Transition>
     </section>

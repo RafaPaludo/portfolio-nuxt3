@@ -1,6 +1,6 @@
 <template>
     <section id="projects" class="projects">
-        <Subtitle>Projects</Subtitle>
+        <Subtitle>Projetos</Subtitle>
 
         <div class="projects__container">
             <RCard></RCard>
