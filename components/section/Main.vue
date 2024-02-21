@@ -3,13 +3,13 @@
       <div class="main__description">
         <div class="main__text">
           <h1>
-            Hello,<br>
-            I'm <span>Rafael Paludo</span>
+            Olá,<br>
+            Sou <span>Rafael Paludo</span>
           </h1>
   
           <h2>Frontend Developer</h2>
   
-          <p>I solve real problems using technology</p>
+          <p>Desenvolvo soluções para a Web</p>
   
           <div class="action__container">
             <Button as="a" href="#contact">Contato</Button>
@@ -20,21 +20,21 @@
   
         <div class="media__container">
           <Button as="a" href="https://github.com/RafaPaludo" target="_blank">
-                <template v-slot="icon">
-                    <Icon name="mdi:github" color="#0E1114" width="32" height="32"/>
-                </template>
+            <template v-slot="icon">
+                <Icon name="mdi:github" color="#0E1114" width="32" height="32"/>
+            </template>
           </Button>
   
           <Button as="a" href="https://www.linkedin.com/in/rafael-paludo-93a48413b/" target="_blank">
-                <template v-slot="icon">
-                    <Icon name="mdi:linkedin" color="#0E1114" width="32" height="32"/>
-                </template>
+              <template v-slot="icon">
+                  <Icon name="mdi:linkedin" color="#0E1114" width="32" height="32"/>
+              </template>
           </Button>
   
           <Button as="a" href="https://www.instagram.com/rafa.paludo/" target="_blank">
-                <template v-slot="icon">
-                    <Icon name="mdi:instagram" color="#0E1114" width="32" height="32"/>
-                </template>
+              <template v-slot="icon">
+                  <Icon name="mdi:instagram" color="#0E1114" width="32" height="32"/>
+              </template>
           </Button>
         </div>
       </div>

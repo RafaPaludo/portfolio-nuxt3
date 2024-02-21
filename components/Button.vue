@@ -41,28 +41,28 @@ const porps = defineProps({
     text-align: center;
 
     &.default {
-        @include bevel;
-        padding: 1.5rem 0;
+      @include bevel;
+      padding: 1.5rem 0;
     }
 
     &.ghost {
-        @include bevel($text-transition-color: $white);
-        padding: 1.5rem 0;
-        color: $light-green;
-        background-color: transparent;
+      @include bevel($text-transition-color: $white);
+      padding: 1.5rem 0;
+      color: $light-green;
+      background-color: transparent;
 
-        &::after {
-            background: $rich-black;
-        }
+      &::after {
+        background: $rich-black;
+      }
 
-        &::before {
-            background: $light-green;
-        }
+      &::before {
+        background: $light-green;
+      }
     }
 
     &.icon {
-        background-color: transparent;
-        min-width: 4rem;
+      background-color: transparent;
+      min-width: 4rem;
     }
 }
 </style>

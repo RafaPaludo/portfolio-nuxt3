@@ -15,4 +15,8 @@ function smoothScroll ({target}) {
   }
 }
 
-export { smoothScroll }
+function currentYear () {
+  return new Date().getFullYear()
+}
+
+export { smoothScroll, currentYear }

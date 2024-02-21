@@ -5,7 +5,9 @@
         <div class="about__description">
             <img src="~/assets/img/sobre-foto.png" alt="" class="about__image">
             <p class="about__text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. And more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.    
+              Com mais de <span>{{ since('2020-01-01') }}</span> anos de experiência no mercado, sou um desenvolvedor front-end especializado na construção de soluções web. 
+              Minhas habilidades concentram-se principalmente em frameworks JavaScript, como Vue.js e ReactJS.
+              Minha abordagem é pautada na compreensão profunda das necessidades de cada projeto para desenvolver aplicações visualmente atraentes e eficazes em conversão.
             </p>
         </div>
 
@@ -33,6 +35,8 @@ import html from '~/assets/img/html.svg'
 import js from '~/assets/img/js.svg'
 import tailwind from '~/assets/img/tailwind.svg'
 import vue from '~/assets/img/vue.svg'
+import sass from '~/assets/img/sass.svg'
+import figma from '~/assets/img/figma.svg'
 
 const icons = [
     {
@@ -62,8 +66,18 @@ const icons = [
     },
     {
         id: 5,
+        name: 'Sass',
+        source: sass
+    },
+    {
+        id: 6,
         name: 'Cypress',
         source: cypress
+    },
+    {
+        id: 7,
+        name: 'Figma',
+        source: figma
     }
 ]
 
@@ -86,6 +100,16 @@ const breakpoints = {
     },
 }
 
+function since (date) {
+  const desiredDate = new Date(date)
+  const now = new Date()
+  const diffInMilliseconds = now - desiredDate
+  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25)
+  const roudYears = Math.round(diffInYears)
+
+  return roudYears
+}
+
 </script>
 
 
@@ -94,9 +118,10 @@ const breakpoints = {
     margin: 14rem 10rem;
 
     &__description {
-        margin: 5rem 0;
-        display: flex;
-        gap: 3rem;
+      margin: 5rem 0;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
     }
 
     &__image {
@@ -133,7 +158,7 @@ const breakpoints = {
   color: $light-green;
 
   &:hover {
-    color: rgba($light-green, .4);
+    color: rgba($neon-green, 1);
   }
 }
 

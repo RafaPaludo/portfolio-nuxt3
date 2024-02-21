@@ -3,7 +3,7 @@
         <Subtitle>Contact</Subtitle>
         <p class="contact__lead">
             Tem algum projeto em mente? <br>
-            Me envie um e-mail para tirarmos isso do papel e revolucionar o mundo!
+            Me envie um e-mail para trabalharmos juntos nisso!
         </p>
 
         <form action="" class="contact__form" ref="form" @submit.prevent="sendEmail">
@@ -57,6 +57,7 @@
 
     &__label {
         grid-column: span 4;
+        padding: 1.5rem;
         @include bevel($border: true, $edge-bottom-right: 0em, $bg-color: $rich-black, $border-color: $white, $hover: false);
 
         &--focus-in {
@@ -77,7 +78,6 @@
           
         & > * {
             width: 100%;
-            padding: 1.5rem;
             background-color: transparent;
             border: none;
             color: $white;
@@ -89,8 +89,8 @@
         }
 
         textarea {
-            min-height: 5rem;
-            resize: vertical;
+          min-height: 5rem;
+          resize: vertical;
         }
     }
 
